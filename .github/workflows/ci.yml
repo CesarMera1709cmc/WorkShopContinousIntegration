@@ -1,0 +1,32 @@
+name: Python CI Pipeline
+
+# Paso 2: Trigger en Pull Requests a la rama main (Recomendación del taller) [cite: 128, 133]
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  linting:
+    # Definir el entorno donde correrá el job (generalmente Ubuntu)
+    runs-on: ubuntu-latest
+    
+    steps:
+      # Descargar el código
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Configurar el entorno de Python
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x' # Usar la versión 3 más reciente
+
+      # Instalar dependencias necesarias (pylint)
+      - name: Install dependencies
+        run: pip install pylint
+
+      # Paso 4: Ejecutar el comando de Linting [cite: 143, 144, 145]
+      # Esto revisará todos los archivos .py en el repositorio.
+      - name: Analyzing the code with pylint
+        run: pylint $(git ls-files '*.py')

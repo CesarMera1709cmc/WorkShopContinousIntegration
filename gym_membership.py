@@ -3,7 +3,7 @@ Gym Membership Management System
 Sistema de Gestión de Membresías de Gimnasio
 """
 
-
+#Kevin Magallanes y Cesar mera
 class GymMembership:
     """Clase principal para manejar las membresías del gimnasio"""
     

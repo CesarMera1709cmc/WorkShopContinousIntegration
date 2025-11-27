@@ -174,3 +174,6 @@ class TestGymMembership(unittest.TestCase):
         """Test: Sin recargo premium sin características premium"""
         surcharge = self.gym.apply_premium_surcharge(100)
         self.assertEqual(surcharge, 0)
+
+
+#Aportaciones de Paul y Juan
